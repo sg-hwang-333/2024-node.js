@@ -13,7 +13,7 @@ server.on('request', async (req, res) => {
     // console.log('url3: ', url.parse(req.url).query);
 
 
-    if (req.url.includes('apple')) {
+    if (req.url.includes('/test')) {
         try {
             const data = await fs.readFile(`.${req.url}.html`);
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
@@ -23,6 +23,7 @@ server.on('request', async (req, res) => {
             res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
             res.end('err: ', e.message);
         }
+
     } else {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 
